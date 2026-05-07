@@ -12,9 +12,12 @@ jobs:
       contents: write
     steps:
       - name: Half-year calendar
-        uses: lowlighter/metrics@latest
+        uses: Daniel-S-Allen/metrics@latest
         with:
           filename: metrics.plugin.isocalendar.svg
           token: ${{ secrets.METRICS_TOKEN }}
-          base: ""
           plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
+          plugin_topics: yes
+          plugin_topics_mode: labels
+          base: header, activity, community, repositories, metadata
