@@ -1,4 +1,4 @@
-name: Half-year calendar
+name: Profile Metrics
 
 on:
   schedule:
@@ -11,13 +11,25 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Half-year calendar
-        uses: Daniel-S-Allen/metrics@latest
+      - name: Calendar
+        uses: lowlighter/metrics@latest
         with:
           filename: metrics.plugin.isocalendar.svg
           token: ${{ secrets.METRICS_TOKEN }}
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
+          base: ''
+      - name: Topics
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.plugin.topics.svg
+          token: ${{ secrets.METRICS_TOKEN }}
           plugin_topics: yes
           plugin_topics_mode: labels
+          base: ''
+      - name: Base
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.plugin.base.svg
+          token: ${{ secrets.METRICS_TOKEN }}
           base: header, activity, community, repositories, metadata
